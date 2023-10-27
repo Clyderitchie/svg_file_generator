@@ -40,7 +40,7 @@ function app() {
         }     
 
 
-        fs.writeFileSync(`./examples/${answer.color}-${answer.shape}.svg`, shape.render());
+        fs.writeFileSync(`./examples/${answer.shapeColor}-${answer.shape}.svg`, shape.render());
     })
 }
 
