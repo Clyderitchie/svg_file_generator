@@ -1,8 +1,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const Circle = require('./lib/shapes');
-const Square = require('./lib/shapes');
-const Triangle = require('./lib/shapes');
+const {Circle, Triangle, Square} = require('./lib/shapes');
+
 
 const questions = [
     {
@@ -36,9 +35,9 @@ function app() {
             shape = new Circle(answer.shapeColor, answer.text, answer.color)
         } else if (answer.shape === 'square') {
             shape = new Square(answer.shapeColor, answer.text, answer.color)
-        } else  {
+        } else {
             shape = new Triangle(answer.shapeColor, answer.text, answer.color)
-        }
+        }     
 
 
         fs.writeFileSync(`./examples/${answer.color}-${answer.shape}.svg`, shape.render());
