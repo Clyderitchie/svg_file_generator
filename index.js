@@ -42,15 +42,7 @@ function app() {
                 shape = new Triangle(answer.shapeColor, answer.text, answer.color);
                 break;
         }
-        // if (answer.shape === 'circle') {
-        //     shape = new Circle(answer.shapeColor, answer.text, answer.color)
-        // } else if (answer.shape === 'square') {
-        //     shape = new Square(answer.shapeColor, answer.text, answer.color)
-        // } else {
-        //     shape = new Triangle(answer.shapeColor, answer.text, answer.color)
-        // }     
-
-
+          
         fs.writeFileSync(`./examples/${answer.shapeColor}-${answer.shape}.svg`, shape.render());
     })
 }
