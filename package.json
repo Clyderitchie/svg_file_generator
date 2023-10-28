@@ -8,6 +8,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "start": "start",
     "test": "jest --watch"
   },
   "keywords": [],
