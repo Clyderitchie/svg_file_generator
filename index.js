@@ -31,13 +31,24 @@ const questions = [
 function app() {
     inquirer.prompt(questions).then(answer => {
         let shape;
-        if (answer.shape === 'circle') {
-            shape = new Circle(answer.shapeColor, answer.text, answer.color)
-        } else if (answer.shape === 'square') {
-            shape = new Square(answer.shapeColor, answer.text, answer.color)
-        } else {
-            shape = new Triangle(answer.shapeColor, answer.text, answer.color)
-        }     
+        switch (answer.shape) {
+            case 'circle':
+                shape = new Circle(answer.shapeColor, answer.text, answer.color);
+                break;
+            case 'square':
+                shape = new Square(answer.shapeColor, answer.text, answer.color);
+                break;
+            default:
+                shape = new Triangle(answer.shapeColor, answer.text, answer.color);
+                break;
+        }
+        // if (answer.shape === 'circle') {
+        //     shape = new Circle(answer.shapeColor, answer.text, answer.color)
+        // } else if (answer.shape === 'square') {
+        //     shape = new Square(answer.shapeColor, answer.text, answer.color)
+        // } else {
+        //     shape = new Triangle(answer.shapeColor, answer.text, answer.color)
+        // }     
 
 
         fs.writeFileSync(`./examples/${answer.shapeColor}-${answer.shape}.svg`, shape.render());
